@@ -1,0 +1,28 @@
+Excluding the File read from Worst case Big O notation in all task
+
+Task0
+Worst Case O(0n + 2)
+Explanation: The number of input has no effect on the commands executed. a total of two lines to print the result will
+be executed anytime the program runs
+
+Task1
+Worse Case O(6n + 2)
+Explanation: The two loops have 3 lines to run for each input making it 3n for each loop which becomes 6n for the two
+loops. creation of the variable to store values and printing the result represent the +2 as they are not affected by
+change in input
+
+Task2
+Worse Case O(11n + 3)
+Explanation: A total of 11 lines must be executed for the loop to complete each cycle making it 11n. the two variable
+creating and printing the result make up the +3 as they will not be changed when there is a change in input
+
+Task3
+Worse Case O (11n + 8)
+Explanation: A total of 7 lines must be executed for the loop to complete a cycle but two these lines are calls to a
+function which has O(3n) as its worse case. substituting each line results in 11n. The +8 consist of various operations
+and printing of result that don't change with input change
+
+Task4
+Worse Case O(6n + 6)
+Explanation: he two loops have 3 lines to run for each input making it 3n for each loop which becomes 6n for the two
+loops. Other operations make up for the +6
