@@ -1,28 +1,51 @@
 Excluding the File read from Worst case Big O notation in all task
 
 Task0
-Worst Case O(0n + 2)
-Explanation: The number of input has no effect on the commands executed. a total of two lines to print the result will
-be executed anytime the program runs
+Worst Case O(1)
+Explanation: Accessing item from a list using an index has a worst time complexity of O(1). which is all this program
+does. accessing the first and last element of calls and text via index has a worst time complexity of O(1)
 
 Task1
-Worse Case O(6n + 2)
-Explanation: The two loops have 3 lines to run for each input making it 3n for each loop which becomes 6n for the two
-loops. creation of the variable to store values and printing the result represent the +2 as they are not affected by
-change in input
+Worse Case O(4n^2 + 1)
+Explanation: I made use of sets to store unique numbers, sets insertion have worst case O(n) and since this happens
+twice for each loop: the worst case of each cycle of the loop is O(2n). since the complexity for each loop to complete
+is O(n) the worst time complexity for each loop to run is (n * 2n): O(2n^2) there are two identical loop so the worst
+time complexity of both will be O(4n^2). the last operation gets the length of the set using the len() and has a worst
+time complexity of O(1). hence giving the total worst time complexity as O(4n^2 + 1)
 
 Task2
-Worse Case O(11n + 3)
-Explanation: A total of 11 lines must be executed for the loop to complete each cycle making it 11n. the two variable
-creating and printing the result make up the +3 as they will not be changed when there is a change in input
+Worse Case O(6n^2 + 3n)
+Explanation: I made use of a Dictionary. both get and set of dictionary have an amortised worse time case of O(n) and
+this operations will be performed twice each for each cycle of the loop making the worst case complexity of those
+operations to be O(4n). i fetch 3 different items from the list using their index for each cycle of the loop which has
+worst case complexity of O(3). the worst case complexity comes to a total of O(4n^2 + 3n) for the first loop to complete
+and populate the dictionary with the telephone as the key and total time spent as the value. the second loop is used to
+get the maximum time spent. for each cycle i compare the current max key which is tracked by an external variable with
+the current key, this means i will be performing two get operations for each cycle resulting in a worst case of O(2n).
+hence the total worst time complexity to find the maximum is O(2n^2). the total worst time complexity for the whole
+program to run is O(4n^2 + 3n) + O(2n^2): O(6n^2 + 3n)
 
 Task3
-Worse Case O (11n + 8)
-Explanation: A total of 7 lines must be executed for the loop to complete a cycle but two these lines are calls to a
-function which has O(3n) as its worse case. substituting each line results in 11n. The +8 consist of various operations
-and printing of result that don't change with input change
+Worse Case O(n^2 + 8n + n Log n + 1)
+Explanation: I created a function that gets the area code of the which has a worst time complexity of O(3). this
+function is called twice for each cycle of the loop: O(6). i'm also making use of a set to store the unique number codes
+called by bangalore fixed numbers. inserting into set for each cycle cost O(n). i have a two variables to
+track total calls from bangalore fixed numbers and total calls from bangalore to bangalore fixed numbers which are
+incremented for each cycle of the loop and has a cost of O(2). the total cost to complete the whole loop is O(n^2 + 8).
+The cost of getting the percentage of calls to bangalore fixed numbers will be O(1) due to the fact that i kept track
+of in the first loop. those variables will be used to calculate the percentage. the worst case of sorted is O(n log n).
+the total cost of the program is O(n^2 + 8n + n Log n + 1)
 
 Task4
-Worse Case O(6n + 6)
-Explanation: he two loops have 3 lines to run for each input making it 3n for each loop which becomes 6n for the two
-loops. Other operations make up for the +6
+Worse Case O(2n^2 + 2n(2^n) + n + n log n)
+Explanation: The first loop insert into two different sets for each cycle resulting in O(2n) for both operations and
+O(2n^2) for the loop to be completed. the second loop inserts two different values into the same set resulting in
+O(2(2^n)) => O(2^n) for each insert as the size of the set will be doubled for each cycle of the loop. the total cost
+of the second loop is O(2n(2^n)). getting the telemarketers is done by getting the difference between two sets which
+will have a worst case of O(n). the cost of sorted is O(n log n). the total cost of the program will be
+O(2n^2 + 2n(2^n) + n + n log n)
+
+references
+https://wiki.python.org/moin/TimeComplexity
+https://www.geeksforgeeks.org/internal-working-of-the-len-function-in-python/
+https://towardsdatascience.com/understanding-time-complexity-with-python-examples-2bda6e8158a7

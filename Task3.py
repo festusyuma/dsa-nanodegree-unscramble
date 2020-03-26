@@ -50,9 +50,9 @@ bangalore_calls_code = set()
 
 
 def get_area_code(number):
-    if '(' in number and number[1] == '0':
+    if number[0] == '(':
         return number[0:(number.find(')') + 1)]
-    elif ' ' in number and number[0] in ['7', '8', '9']:
+    elif number[5] == ' ':
         return number[0:4]
     elif number[0:3] == '140':
         return '140'

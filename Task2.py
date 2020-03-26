@@ -24,20 +24,26 @@ time_spent = {}
 most_time = None
 
 for call in calls:
-    if call[0] not in time_spent:
-        time_spent[call[0]] = 0
+    outgoing = call[0]
+    incoming = call[1]
+    current_time_spent = int(call[3])
 
-    if call[1] not in time_spent:
-        time_spent[call[1]] = 0
+    outgoing_time = time_spent.get(outgoing)
+    incoming_time = time_spent.get(incoming)
 
-    time_spent[call[0]] += int(call[3])
-    time_spent[call[1]] += int(call[3])
+    if outgoing_time:
+        time_spent[outgoing] += current_time_spent
+    else:
+        time_spent[outgoing] = current_time_spent
 
-    if most_time is None or time_spent[call[0]] > time_spent[most_time]:
-        most_time = call[0]
+    if incoming_time:
+        time_spent[incoming] += current_time_spent
+    else:
+        time_spent[incoming] = current_time_spent
 
-    if time_spent[call[1]] > time_spent[most_time]:
-        most_time = call[1]
+for no in time_spent:
+    if most_time is None or time_spent[no] > time_spent[most_time]:
+        most_time = no
 
 print('{} spent the longest time, {} seconds, on the phone during September 2016.'
       .format(most_time, time_spent[most_time]))
